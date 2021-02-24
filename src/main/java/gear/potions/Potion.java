@@ -3,7 +3,7 @@ package gear.potions;
 import behaviors.IUse;
 import characters.Player;
 
-public class Potion implements IUse {
+public abstract class Potion implements IUse {
     private String name;
 
     public Potion(String name){
@@ -11,11 +11,16 @@ public class Potion implements IUse {
 
     }
 
+    public String getName(){
+        return this.name;
+    }
+
 
     public void effect(){
         System.out.println(String.format("%s has been used", this.name ));
 
     }
+
 
 
 

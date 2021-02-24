@@ -2,6 +2,7 @@ package characters;
 
 import behaviors.IAttack;
 import behaviors.IUse;
+import gear.potions.HealingPotion;
 import gear.potions.Potion;
 import gear.weapons.Sword;
 import gear.weapons.Weapon;
@@ -97,13 +98,14 @@ public abstract class Player implements IAttack {
 
     public void attack(Player player){
         int totalDamage = this.atk + this.weapon.getDamage() - player.getDef();
-        player.setHp(player.getHp() - totalDamage  ) ;
+        player.setHp(player.getHp() - totalDamage) ;
     }
 
 
     public void usePotion( IUse potion, Player player){
-        IUse newPotion = player.removeEquipment(potion);
-        newPotion.use(player);
+        IUse returnedItem = player.removeEquipment(potion);
+//        HealingPotion newPotion = new HealingPotion(returnedItem.getName());
+        potion.effect();
     }
 
 
