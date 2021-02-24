@@ -1,9 +1,13 @@
+import behaviors.IUse;
 import characters.Fighter;
 import gear.potions.Potion;
 import gear.weapons.Sword;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.experimental.theories.suppliers.TestedOn;
 
+
+import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
 
@@ -65,13 +69,22 @@ public class FighterTest {
     }
 
 
-//    @Test
-//    public void canGetEquipmentList(){
-//        ajax.addEquipment(sword);
-//        ajax.addEquipment(sword2);
-//        ajax.addEquipment(potion);
-//        assertEquals(sword ,ajax.getEquipment());
-//
-//    }
+    @Test
+    public void canGetEquipmentList(){
+        ajax.addEquipment(sword);
+        ajax.addEquipment(sword2);
+        ajax.addEquipment(potion);
+        ArrayList<IUse> expected = new ArrayList<IUse>();
+        expected.add(sword);
+        expected.add(sword2);
+        expected.add(potion);
+        assertEquals(3,ajax.getEquipmentSize());
+        assertEquals(expected,ajax.getEquipment());
+    }
+
+
+
+
+
 
 }
