@@ -57,6 +57,12 @@ public abstract class Player implements IAttack {
         return this.equipment.size();
     }
 
+    public void removeEquipment(IUse item){
+        equipment.remove(item);
+
+
+    }
+
 
 
 

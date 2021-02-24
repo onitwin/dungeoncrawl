@@ -82,6 +82,30 @@ public class FighterTest {
         assertEquals(expected,ajax.getEquipment());
     }
 
+    @Test
+    public void canRemoveSpecificItem(){
+        ajax.addEquipment(sword);
+        ajax.addEquipment(sword2);
+        ajax.addEquipment(potion);
+        ArrayList<IUse> expected = new ArrayList<IUse>();
+        expected.add(sword);
+        expected.add(sword2);
+        ajax.removeEquipment(potion);
+        assertEquals(expected, ajax.getEquipment());
+
+    }
+
+//    @Test
+//    public void canGetSpecificItem(){
+//        ajax.addEquipment(sword);
+//        ajax.addEquipment(sword2);
+//        ajax.addEquipment(potion);
+//        ArrayList<IUse> expected = new ArrayList<IUse>();
+//        expected.add(sword);
+//        expected.add(sword2);
+//        expected.add(potion);
+//        assertEquals("Stabby",ajax.specificItem());
+//    }
 
 
 
