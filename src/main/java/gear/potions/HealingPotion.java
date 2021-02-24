@@ -8,7 +8,9 @@ public class HealingPotion extends Potion{
         super(name);
     }
 
-    public void effect(Player player){
+    public void use(Player player){
         player.setHp(player.getHp()+5);
     }
+
+
 }

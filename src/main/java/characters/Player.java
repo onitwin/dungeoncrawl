@@ -61,9 +61,6 @@ public abstract class Player implements IAttack {
     public IUse removeEquipment(IUse item){
         IUse returnEquip = this.equipment.get(this.equipment.indexOf(item));
             return returnEquip;
-
-
-
     }
 
 
@@ -104,9 +101,9 @@ public abstract class Player implements IAttack {
     }
 
 
-    public void usePotion(IUse potion, Player player){
+    public void usePotion( IUse potion, Player player){
         IUse newPotion = player.removeEquipment(potion);
-        newPotion.effect(player);
+        newPotion.use(player);
     }
 
 
