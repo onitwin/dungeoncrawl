@@ -1,20 +1,19 @@
 package gear.potions;
 
 import behaviors.IUse;
+import characters.Player;
 
-public class Potion implements IUse {
+public  class Potion implements IUse {
     private String name;
-    private boolean used;
 
     public Potion(String name){
         this.name=name;
-        this.used=false;
 
     }
 
 
-    public void effect(){
-        this.used=true;
+    public void effect( Player player){
+
     }
 
 }

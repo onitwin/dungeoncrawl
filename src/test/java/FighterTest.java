@@ -1,5 +1,6 @@
 import behaviors.IUse;
 import characters.Fighter;
+import gear.potions.HealingPotion;
 import gear.potions.Potion;
 import gear.weapons.Sword;
 import org.junit.Before;
@@ -18,6 +19,7 @@ public class FighterTest {
     Sword sword;
     Sword sword2;
     Potion potion;
+    HealingPotion beetleJuice;
 
     @Before
         public void before() {
@@ -26,6 +28,7 @@ public class FighterTest {
         potion = new Potion("good for you" );
         ajax = new Fighter("Ajax", sword, 10, 20, 30);
         dave = new Fighter("Dave", sword2, 10, 20, 50);
+        beetleJuice = new HealingPotion("Beetle Juice");
     }
 
     @Test
@@ -95,6 +98,18 @@ public class FighterTest {
 
     }
 
+
+
+    @Test
+    public void canUsePotion(){
+        ajax.addEquipment(sword);
+        ajax.addEquipment(sword2);
+        ajax.addEquipment(beetleJuice);
+        assertEquals(3, ajax.getEquipmentSize());
+        assertEquals(30, ajax.getHp());
+        ajax.usePotion(beetleJuice, ajax);
+        assertEquals(35,ajax.getHp());
+    }
 //    @Test
 //    public void canGetSpecificItem(){
 //        ajax.addEquipment(sword);

@@ -2,6 +2,7 @@ package characters;
 
 import behaviors.IAttack;
 import behaviors.IUse;
+import gear.potions.Potion;
 import gear.weapons.Sword;
 import gear.weapons.Weapon;
 
@@ -11,9 +12,9 @@ public abstract class Player implements IAttack {
     private String name;
     protected Weapon weapon;
     private ArrayList<IUse> equipment;
-    int atk;
-    int def;
-    int hp;
+    private int atk;
+    private int def;
+    private int hp;
 
     public Player(String name,Weapon weapon,int atk,int def,int hp){
         this.name=name;
@@ -57,8 +58,10 @@ public abstract class Player implements IAttack {
         return this.equipment.size();
     }
 
-    public void removeEquipment(IUse item){
-        equipment.remove(item);
+    public IUse removeEquipment(IUse item){
+        IUse returnEquip = this.equipment.get(this.equipment.indexOf(item));
+            return returnEquip;
+
 
 
     }
@@ -100,6 +103,11 @@ public abstract class Player implements IAttack {
         player.setHp(player.getHp() - totalDamage  ) ;
     }
 
+
+    public void usePotion(IUse potion, Player player){
+        IUse newPotion = player.removeEquipment(potion);
+        newPotion.effect(player);
+    }
 
 
 
