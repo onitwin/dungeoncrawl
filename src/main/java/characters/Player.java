@@ -107,6 +107,7 @@ public abstract class Player implements IAttack {
         IUse returnedItem = player.removeEquipment(item);
         System.out.println(String.format("%s items in the bag",this.getEquipmentSize()));
         returnedItem.effect(player);
+        System.out.println(returnedItem instanceof IUse);
         ((Potion)returnedItem).nonsense();
     }
 
