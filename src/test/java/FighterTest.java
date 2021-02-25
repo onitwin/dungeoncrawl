@@ -25,7 +25,7 @@ public class FighterTest {
         public void before() {
         sword = new Sword("Stabby", 40);
         sword2 = new Sword("Slashy", 10);
-        potion = new Potion("good for you" );
+        potion = new HealingPotion("good for you" );
         ajax = new Fighter("Ajax", sword, 10, 20, 30);
         dave = new Fighter("Dave", sword2, 10, 20, 50);
         beetleJuice = new HealingPotion("Beetle Juice");
@@ -107,8 +107,11 @@ public class FighterTest {
         ajax.addEquipment(beetleJuice);
         assertEquals(3, ajax.getEquipmentSize());
         assertEquals(30, ajax.getHp());
+        System.out.println(String.format("First go %s" ,ajax.getHp()));
         ajax.usePotion(beetleJuice, ajax);
+        System.out.println(String.format("Second go %s" ,ajax.getHp()));
         assertEquals(35,ajax.getHp());
+        assertEquals(2, ajax.getEquipmentSize());
     }
 //    @Test
 //    public void canGetSpecificItem(){

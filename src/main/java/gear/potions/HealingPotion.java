@@ -9,9 +9,12 @@ public class HealingPotion extends Potion {
         super(name);
     }
 
-    public void effect(){
+    public void effect(Player player){
         player.setHp(player.getHp()+5);
     }
 
-
+    @Override
+    public void nonsense() {
+       System.out.println("NOOOOOOOO, this is nonsense!!");
+    }
 }

@@ -9,7 +9,6 @@ public class Fighter extends Player {
         super(name,weapon,atk,def,hp);
     }
 
-    //Hello Joseph
 
 
 

@@ -60,7 +60,7 @@ public abstract class Player implements IAttack {
     }
 
     public IUse removeEquipment(IUse item){
-        IUse returnEquip = this.equipment.get(this.equipment.indexOf(item));
+        IUse returnEquip = this.equipment.remove(this.equipment.indexOf(item));
             return returnEquip;
     }
 
@@ -102,10 +102,12 @@ public abstract class Player implements IAttack {
     }
 
 
-    public void usePotion( IUse potion, Player player){
-        IUse returnedItem = player.removeEquipment(potion);
-//        HealingPotion newPotion = new HealingPotion(returnedItem.getName());
-        potion.effect();
+    public void usePotion( IUse item, Player player){
+        System.out.println(String.format("%s items in the bag",this.getEquipmentSize()));
+        IUse returnedItem = player.removeEquipment(item);
+        System.out.println(String.format("%s items in the bag",this.getEquipmentSize()));
+        returnedItem.effect(player);
+        ((Potion)returnedItem).nonsense();
     }
 
 

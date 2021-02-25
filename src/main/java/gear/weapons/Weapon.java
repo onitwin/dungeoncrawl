@@ -1,6 +1,7 @@
 package gear.weapons;
 
 import behaviors.IUse;
+import characters.Player;
 
 public abstract class Weapon implements IUse {
     private String name;
@@ -37,8 +38,8 @@ public abstract class Weapon implements IUse {
         this.damageType = damageType;
     }
 
-    public void effect(){
-        this.damage=this.damage+1;
+    public void effect(Player player){
+        player.setHp(player.getHp()-1);
     }
 
 

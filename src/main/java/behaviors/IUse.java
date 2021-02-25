@@ -4,7 +4,7 @@ import characters.Player;
 
 public interface IUse {
 
-     void effect();
+     void effect(Player player);
 
      String getName();
 }

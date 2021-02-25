@@ -15,8 +15,12 @@ public abstract class Potion implements IUse {
         return this.name;
     }
 
+    public void nonsense(){
+     System.out.println("This is nonsense");
+    }
 
-    public void effect(){
+
+    public void effect(Player player){
         System.out.println(String.format("%s has been used", this.name ));
 
     }
