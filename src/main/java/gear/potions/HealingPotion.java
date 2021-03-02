@@ -15,6 +15,6 @@ public class HealingPotion extends Potion {
 
     @Override
     public void nonsense() {
-       System.out.println("NOOOOOOOO, this is nonsense!!");
+       System.out.println("Hello Jack!!");
     }
 }
