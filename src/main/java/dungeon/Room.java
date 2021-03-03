@@ -84,7 +84,7 @@ public class Room {
     }
 
     public void addLoot(IUse item){
-
+        this.loot.add(item);
     }
 
     public void canPassLoot(IUse item){
