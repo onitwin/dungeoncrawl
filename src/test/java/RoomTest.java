@@ -1,6 +1,9 @@
 import characters.Fighter;
 import characters.Skeleton;
 import dungeon.Room;
+import gear.treasure.Coin;
+import gear.treasure.Key;
+import gear.treasure.Loot;
 import gear.weapons.Sword;
 import org.junit.Before;
 import org.junit.Test;
@@ -18,6 +21,8 @@ public class RoomTest {
     Fighter ajax;
     Skeleton bonesy;
     Skeleton skully;
+    Key key;
+    Coin coin;
 
 
     @Before
@@ -27,9 +32,10 @@ public class RoomTest {
         dungeon=new Room("dungeon",String.format("The dungeon has strange implements of torture"));
         bonesy=new Skeleton("Bonesy",sword,5,20,100);
         skully=new Skeleton("Skully",sword,1,2,3);
-
         sword = new Sword("Stabby", 40);
         ajax = new Fighter("Ajax", sword, 10, 20, 30);
+        key = new Key("Boss Room Key", 1);
+        coin = new Coin("Golden Ducet", 10);
     }
 
     @Test
@@ -107,6 +113,31 @@ public class RoomTest {
         kitchen.addMonster(bonesy);
         kitchen.addMonster(skully);
         assertEquals(kitchen.getSpecificMonster(skully),skully);
+
+    }
+
+
+    @Test
+    public void canGetLootSize(){
+        assertEquals(0, kitchen.getLootSize());
+    }
+
+    @Test
+    public void canAddLoot(){
+        assertEquals(0,kitchen.getLootSize());
+        kitchen.addLoot(key);
+        assertEquals(1,kitchen.getLootSize());
+    }
+
+    @Test
+    public void canPassLoot(){
+        kitchen.addLoot(key);
+        kitchen.addLoot(coin);
+        assertEquals(kitchen.getLootSize(), 2);
+        assertEquals(ajax.getEquipmentSize(),0);
+        kitchen.canPassLoot(key);
+        assertEquals(kitchen.getLootSize(), 1);
+        assertEquals(ajax.getEquipmentSize(),1);
 
     }
 //
