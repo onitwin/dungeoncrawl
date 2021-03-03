@@ -36,11 +36,22 @@ public class Room {
     }
 
     public void addPlayer(Player player){
+        this.visited = true;
         this.player=player;
     }
 
     public Player getPlayer(){
         return this.player;
+    }
+
+    public boolean visitedStatus(){
+        return this.visited;
+
+    }
+
+    public void passPlayer(Room newRoom){
+        newRoom.addPlayer(this.player);
+        this.player = null;
     }
 
 
