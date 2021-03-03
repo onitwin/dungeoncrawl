@@ -12,7 +12,7 @@ public class Room {
     private String roomname;
     private String description;
     private ArrayList<Monster> monsters;
-    private HashMap<String,Room> rooms;
+    private HashMap<String,Room> exits;
     private boolean visited;
     private Player player;
     private ArrayList<IUse>loot;
@@ -24,7 +24,7 @@ public class Room {
         this.monsters=new ArrayList<Monster>();
         this.loot=new ArrayList<IUse>();
         this.visited=false;
-        this.rooms=new HashMap<String, Room>();
+        this.exits=new HashMap<String, Room>();
     }
 
     public String getRoomname(){
@@ -52,6 +52,18 @@ public class Room {
     public void passPlayer(Room newRoom){
         newRoom.addPlayer(this.player);
         this.player = null;
+    }
+
+    public int getExitSize(){
+        return this.exits.size();
+    }
+
+    public void addExits(String direction, Room room){
+        this.exits.put(direction,room);
+    }
+
+    public HashMap getExits(){
+        return this.exits;
     }
 
 

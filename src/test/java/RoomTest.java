@@ -4,11 +4,14 @@ import gear.weapons.Sword;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.HashMap;
+
 import static org.junit.Assert.*;
 
 public class RoomTest {
     Room kitchen;
     Room basement;
+    Room dungeon;
     Sword sword;
     Fighter ajax;
 
@@ -17,6 +20,8 @@ public class RoomTest {
     public void before(){
         kitchen=new Room("kitchen",String.format("The kitchen is small and needs cleaned"));
         basement=new Room("basement",String.format("Its damp and dark in the basement"));
+        dungeon=new Room("dungeon",String.format("The dungeon has strange implements of torture"));
+
         sword = new Sword("Stabby", 40);
         ajax = new Fighter("Ajax", sword, 10, 20, 30);
     }
@@ -70,6 +75,24 @@ public class RoomTest {
         assertEquals(basement.visitedStatus(), true);
         assertNotNull(basement.getPlayer());
         assertEquals(kitchen.visitedStatus(), true);
+    }
+
+    @Test
+    public void getRoomExits(){
+        kitchen.addExits("North",dungeon);
+        kitchen.addExits("West",basement);
+        assertEquals(2,kitchen.getExitSize());
+    }
+
+    @Test
+    public void getExitsKey(){
+        kitchen.addExits("North",dungeon);
+//        kitchen.addExits("West",basement);
+           assertEquals(System.out.println("North"), kitchen.getExits().keySet());
+
+
+
+
     }
 
 
