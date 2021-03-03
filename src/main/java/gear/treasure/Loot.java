@@ -34,7 +34,8 @@ public abstract class Loot implements IUse {
         this.value = value;
     }
 
-    public void effect(Player player){
+    public void effect(Player player  ){
+        System.out.println(String.format("%s has collected %s", player.getName(),this.name));
 
     }
 }
