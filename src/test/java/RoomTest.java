@@ -1,4 +1,5 @@
 import characters.Fighter;
+import characters.Skeleton;
 import dungeon.Room;
 import gear.weapons.Sword;
 import org.junit.Before;
@@ -15,6 +16,8 @@ public class RoomTest {
     Room dungeon;
     Sword sword;
     Fighter ajax;
+    Skeleton bonesy;
+    Skeleton skully;
 
 
     @Before
@@ -22,6 +25,8 @@ public class RoomTest {
         kitchen=new Room("kitchen",String.format("The kitchen is small and needs cleaned"));
         basement=new Room("basement",String.format("Its damp and dark in the basement"));
         dungeon=new Room("dungeon",String.format("The dungeon has strange implements of torture"));
+        bonesy=new Skeleton("Bonesy",sword,5,20,100);
+        skully=new Skeleton("Skully",sword,1,2,3);
 
         sword = new Sword("Stabby", 40);
         ajax = new Fighter("Ajax", sword, 10, 20, 30);
@@ -83,6 +88,26 @@ public class RoomTest {
         kitchen.addExits("North",dungeon);
         kitchen.addExits("West",basement);
         assertEquals(2,kitchen.getExitSize());
+    }
+
+    @Test
+    public void checkMonsterArrayEmpty(){
+        assertEquals(kitchen.getMonstersSize(),0);
+    }
+
+    @Test
+    public void canAddMonsters(){
+        assertEquals(kitchen.getMonstersSize(),0);
+        kitchen.addMonster(bonesy);
+        assertEquals(kitchen.getMonstersSize(),1);
+    }
+
+    @Test
+    public void canGetSpecificMonster(){
+        kitchen.addMonster(bonesy);
+        kitchen.addMonster(skully);
+        assertEquals(kitchen.getSpecificMonster(skully),skully);
+
     }
 
 //    @Test

@@ -66,5 +66,18 @@ public class Room {
         return this.exits;
     }
 
+    public int getMonstersSize(){
+        return this.monsters.size();
+    }
+
+    public void addMonster(Monster monster){
+        this.monsters.add(monster);
+    }
+
+    public Monster getSpecificMonster(Monster monster){
+        Monster target=this.monsters.get(this.monsters.indexOf(monster));
+        return target;
+    }
+
 
 }
