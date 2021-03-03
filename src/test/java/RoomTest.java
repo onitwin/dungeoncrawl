@@ -5,6 +5,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.HashMap;
+import java.util.Set;
 
 import static org.junit.Assert.*;
 
@@ -84,16 +85,17 @@ public class RoomTest {
         assertEquals(2,kitchen.getExitSize());
     }
 
-    @Test
-    public void getExitsKey(){
-        kitchen.addExits("North",dungeon);
+//    @Test
+//    public void getExitsKey(){
+//        kitchen.addExits("North",dungeon);
 //        kitchen.addExits("West",basement);
-           assertEquals(System.out.println("North"), kitchen.getExits().keySet());
-
-
-
-
-    }
+//        Set results = kitchen.getExits().keySet();
+//        System.out.println(results);
+//        for(Object key : results){
+//            System.out.println(key.getClass());
+//            System.out.println(key);
+//        }
+//    }
 
 
 
