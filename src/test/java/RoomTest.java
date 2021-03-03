@@ -131,6 +131,7 @@ public class RoomTest {
 
     @Test
     public void canPassLoot(){
+        kitchen.addPlayer(ajax);
         kitchen.addLoot(key);
         kitchen.addLoot(coin);
         assertEquals(kitchen.getLootSize(), 2);
@@ -140,22 +141,5 @@ public class RoomTest {
         assertEquals(ajax.getEquipmentSize(),1);
 
     }
-//
-//    @Test
-//    public void getExitsKey(){
-//        kitchen.addExits("North",dungeon);
-//        kitchen.addExits("West",basement);
-//        Set results = kitchen.getExits().keySet();
-//        System.out.println(results);
-//        for(Object key : results){
-//            System.out.println(key.getClass());
-//            System.out.println(key);
-//        }
-//    }
-
-
-
-
-
 
 }

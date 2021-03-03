@@ -88,12 +88,8 @@ public class Room {
     }
 
     public void canPassLoot(IUse item){
-                this.player.addEquipment(this.loot.remove(this.loot.indexOf(item)));
-
-//        IUse returnedItem = this.loot.remove(this.loot.indexOf(item));
-//        System.out.println(item.getClass());
+        this.player.addEquipment(this.loot.remove(this.loot.indexOf(item)));
     }
-
 
 
 }
