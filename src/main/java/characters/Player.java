@@ -108,8 +108,10 @@ public abstract class Player implements IAttack {
         System.out.println(String.format("%s items in the bag",this.getEquipmentSize()));
         returnedItem.effect(player);
         System.out.println(returnedItem instanceof IUse);
-        ((Potion)returnedItem).nonsense();
+
     }
+
+//     ((Potion)returnedItem).nonsense(); casting example
 
 
 
