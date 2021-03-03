@@ -27,5 +27,21 @@ public class Room {
         this.rooms=new HashMap<String, Room>();
     }
 
+    public String getRoomname(){
+        return this.roomname;
+    }
+
+    public String getDescription(){
+        return this.description;
+    }
+
+    public void addPlayer(Player player){
+        this.player=player;
+    }
+
+    public Player getPlayer(){
+        return this.player;
+    }
+
 
 }
