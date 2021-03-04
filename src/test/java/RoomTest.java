@@ -27,8 +27,8 @@ public class RoomTest {
 
     @Before
     public void before(){
-        kitchen=new Room("kitchen",String.format("The kitchen is small and needs cleaned"));
-        basement=new Room("basement",String.format("Its damp and dark in the basement"));
+        kitchen=new Room("kitchen",String.format("The kitchen is small and needs cleaned."));
+        basement=new Room("basement",String.format("Its damp and dark in the basement."));
         dungeon=new Room("dungeon",String.format("The dungeon has strange implements of torture"));
         bonesy=new Skeleton("Bonesy",sword,5,20,100);
         skully=new Skeleton("Skully",sword,1,2,3);
@@ -45,8 +45,31 @@ public class RoomTest {
 
     @Test
     public void canGetDescription(){
-        assertEquals("The kitchen is small and needs cleaned",kitchen.getDescription());
+        assertEquals("The kitchen is small and needs cleaned.",kitchen.getDescription());
     }
+
+    @Test
+    public void descriptionUpdatesWithMonsters(){
+        kitchen.addMonster(skully);
+        assertEquals("The kitchen is small and needs cleaned. There is 1 Skully in the room.", kitchen.getDescription());
+    }
+
+    @Test
+    public void descriptionUpdatesWithLoot(){
+        kitchen.addLoot(key);
+        assertEquals("The kitchen is small and needs cleaned. There is a Boss Room Key on the floor.", kitchen.getDescription());
+    }
+
+    @Test
+    public void descriptionUpdatesWithLootandMonster(){
+        kitchen.addMonster(skully);
+        kitchen.addLoot(key);
+        assertEquals("The kitchen is small and needs cleaned. There is 1 Skully in the room. There is a Boss Room Key on the floor.", kitchen.getDescription());
+
+
+
+    }
+
 
     @Test
     public void startsWithNoPlayer(){

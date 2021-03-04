@@ -3,6 +3,7 @@ package dungeon;
 import behaviors.IUse;
 import characters.Monster;
 import characters.Player;
+import gear.treasure.Loot;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -32,7 +33,17 @@ public class Room {
     }
 
     public String getDescription(){
-        return this.description;
+        String startDescription = this.description;
+        if( this.monsters.size() > 0){
+           String newDescription = String.format(" There is %s %s in the room.", this.monsters.size(), this.monsters.get(0).getName());
+           startDescription = startDescription + newDescription;
+        }
+        if( this.loot.size() > 0){
+            String newDescription = String.format(" There is a %s on the floor.", ((Loot)this.loot.get(0)).getName());
+            startDescription = startDescription + newDescription;
+
+        }
+        return startDescription;
     }
 
     public void addPlayer(Player player){
