@@ -41,6 +41,7 @@ public class Runner {
         Fighter player=new Fighter(name,shinysword,10,10,30);
         System.out.println("Forced against your will to enter the abandoned castle, you steel yourself and approach the first door. The doorway behind you disappears...");
         kitchen.addPlayer(player);
+        kitchen.getExitString();
 
 
     }

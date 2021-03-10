@@ -78,6 +78,11 @@ public class Room {
         return this.exits;
     }
 
+    public void getExitString(){
+        for (String exit:this.exits.keySet()){
+            System.out.println(String.format("There is a door to the %s",exit));
+        }
+    }
 
     public int getMonstersSize(){
         return this.monsters.size();
