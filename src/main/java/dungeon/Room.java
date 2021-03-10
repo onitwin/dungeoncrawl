@@ -43,12 +43,13 @@ public class Room {
             startDescription = startDescription + newDescription;
 
         }
-        return startDescription;
+        return  startDescription;
     }
 
     public void addPlayer(Player player){
         this.visited = true;
         this.player=player;
+        System.out.println(this.getDescription());
     }
 
     public Player getPlayer(){
@@ -76,6 +77,7 @@ public class Room {
     public HashMap getExits(){
         return this.exits;
     }
+
 
     public int getMonstersSize(){
         return this.monsters.size();
