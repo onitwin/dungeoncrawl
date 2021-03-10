@@ -50,6 +50,7 @@ public class Room {
         this.visited = true;
         this.player=player;
         System.out.println(this.getDescription());
+
     }
 
     public Player getPlayer(){
