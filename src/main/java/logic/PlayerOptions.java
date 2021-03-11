@@ -129,7 +129,7 @@ public class PlayerOptions {
 
         }
         String choice = potionChoice.nextLine();
-
+        //Loop through owedPotions with users choice cast object back to type Potion and call this.player.usePotion()
         this.usePotion();
 
 
