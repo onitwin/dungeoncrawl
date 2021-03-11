@@ -102,13 +102,19 @@ public class Room {
         return this.loot.size();
     }
 
+    public ArrayList<IUse> getAllLoot(){
+        return this.loot;
+    }
+
     public void addLoot(IUse item){
         this.loot.add(item);
     }
 
-    public void canPassLoot(IUse item){
+    public void passLoot(IUse item){
                 this.player.addEquipment(this.loot.remove(this.loot.indexOf(item)));
     }
+
+
 
 
 }

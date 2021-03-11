@@ -1,5 +1,6 @@
 package logic;
 
+import behaviors.IUse;
 import characters.Player;
 import dungeon.Room;
 
@@ -45,17 +46,35 @@ public class PlayerOptions {
         if(this.room.getMonstersSize()<3){
             System.out.println("3:Choose exit");
         }
+        System.out.println("4:Check equipment");
+        System.out.println("5:Change weapon");
+        System.out.println("6:Use Item");
+        System.out.println(" ");
+
         Scanner choice=new Scanner(System.in);
         int door= choice.nextInt();
         switch(door){
             case 1:
-                System.out.print("You attack");
+                System.out.println("You attack");
                 break;
             case 2:
-                System.out.print("You pick up the loot");
+                System.out.println("You pick up the loot");
+                for(IUse loot:this.room.getAllLoot()){
+                    this.room.passLoot(loot);
+                }
                 break;
             case 3:
-                System.out.print("You check the exits");
+                System.out.println("You check the exits");
+                break;
+            case 4:
+                this.player.getGear();
+                System.out.println(" ");
+                break;
+            case 5:
+                System.out.println("You swop weapons");
+                break;
+            case 6:
+                System.out.println("You use the item");
                 break;
         }
 

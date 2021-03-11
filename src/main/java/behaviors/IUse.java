@@ -6,4 +6,6 @@ public interface IUse {
 
      void effect(Player player);
 
+     String getName();
+
 }

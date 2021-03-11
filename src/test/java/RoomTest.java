@@ -159,10 +159,16 @@ public class RoomTest {
         kitchen.addLoot(coin);
         assertEquals(kitchen.getLootSize(), 2);
         assertEquals(ajax.getEquipmentSize(),0);
-        kitchen.canPassLoot(key);
+        kitchen.passLoot(key);
         assertEquals(kitchen.getLootSize(), 1);
         assertEquals(ajax.getEquipmentSize(),1);
 
     }
+
+//    @Test
+//    public void canGetArrayOfItems(){
+//        kitchen.addLoot(coin);
+//        assertEquals("blah",kitchen.getAllLoot());
+//    }
 
 }

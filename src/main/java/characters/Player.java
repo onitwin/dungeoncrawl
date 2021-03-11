@@ -4,6 +4,7 @@ import behaviors.IAttack;
 import behaviors.IUse;
 import gear.potions.HealingPotion;
 import gear.potions.Potion;
+import gear.weapons.Axe;
 import gear.weapons.Sword;
 import gear.weapons.Weapon;
 
@@ -44,6 +45,12 @@ public abstract class Player implements IAttack {
 
     public ArrayList<IUse> getEquipment() {
         return equipment;
+    }
+
+    public void getGear(){
+        for (IUse gear:this.equipment){
+            System.out.println(String.format("You have a %s", gear.getName()));
+        }
     }
 
     public void setEquipment(ArrayList<IUse> equipment) {
