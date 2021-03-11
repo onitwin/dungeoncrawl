@@ -171,4 +171,11 @@ public class RoomTest {
 //        assertEquals("blah",kitchen.getAllLoot());
 //    }
 
+    @Test
+    public void canGetMultipleItems(){
+        kitchen.addLoot(coin);
+        kitchen.addLoot(key);
+        assertEquals("Heloo" , kitchen.individualItemOfLoot());
+    }
+
 }

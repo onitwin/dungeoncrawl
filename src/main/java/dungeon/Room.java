@@ -114,6 +114,11 @@ public class Room {
                 this.player.addEquipment(this.loot.remove(this.loot.indexOf(item)));
     }
 
+    public IUse individualItemOfLoot(){
+        return this.loot.get(0);
+
+    }
+
 
 
 

@@ -4,6 +4,7 @@ import behaviors.IUse;
 import characters.Player;
 import dungeon.Room;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class PlayerOptions {
@@ -59,9 +60,12 @@ public class PlayerOptions {
                 break;
             case 2:
                 System.out.println("You pick up the loot");
-                for(IUse loot:this.room.getAllLoot()){
-                    this.room.passLoot(loot);
-                }
+                int lootSize = this.room.getLootSize();
+                int i = 0;
+                while(i  < lootSize){
+                    this.room.passLoot(this.room.individualItemOfLoot());
+                    i++;
+                 }
                 break;
             case 3:
                 System.out.println("You check the exits");
