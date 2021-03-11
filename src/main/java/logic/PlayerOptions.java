@@ -50,6 +50,7 @@ public class PlayerOptions {
         System.out.println("4:Check equipment");
         System.out.println("5:Change weapon");
         System.out.println("6:Use Item");
+        System.out.println("7:Examine Room ");
         System.out.println(" ");
 
         Scanner choice=new Scanner(System.in);
@@ -75,11 +76,16 @@ public class PlayerOptions {
                 System.out.println(" ");
                 break;
             case 5:
-                System.out.println("You swop weapons");
+                System.out.println("You swap weapons");
                 break;
             case 6:
                 System.out.println("You use the item");
                 break;
+            case 7:
+                System.out.println(this.room.getDescription());
+                System.out.println(" ");
+
+
         }
 
     }

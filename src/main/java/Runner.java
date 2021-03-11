@@ -4,6 +4,7 @@ import characters.Player;
 import characters.Skeleton;
 import dungeon.Room;
 import gear.potions.HealingPotion;
+import gear.treasure.Coin;
 import gear.treasure.Key;
 import gear.weapons.Axe;
 import gear.weapons.Sword;
@@ -24,12 +25,12 @@ public class Runner {
         Skeleton skully=new Skeleton("Skully",shinysword,5,5,30);
         Skeleton bonesy=new Skeleton("bonesy",shinysword,5,5,30);
         Key rustykey=new Key("Rusty Key",0);
-//        Key nicekey=new Key("nice Key",0);
+
+
 
 
         kitchen.addMonster(skully);
         kitchen.addLoot(rustykey);
-//        kitchen.addLoot(nicekey);
         kitchen.addExits("North",dungeon);
         kitchen.addExits("South",bedroom);
         dungeon.addExits("South",kitchen);
