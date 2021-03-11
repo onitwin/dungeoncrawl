@@ -35,15 +35,30 @@ public class PlayerOptions {
     }
 
     public void presentChoices(){
+        System.out.println("Choose action:");
         if(this.room.getMonstersSize()>0){
             System.out.println("1:Attack");
         }
         if (this.room.getLootSize()>0){
             System.out.println("2:Pick up loot");
         }
-        if(this.room.getMonstersSize()<1){
+        if(this.room.getMonstersSize()<3){
             System.out.println("3:Choose exit");
         }
+        Scanner choice=new Scanner(System.in);
+        int door= choice.nextInt();
+        switch(door){
+            case 1:
+                System.out.print("You attack");
+                break;
+            case 2:
+                System.out.print("You pick up the loot");
+                break;
+            case 3:
+                System.out.print("You check the exits");
+                break;
+        }
+
     }
 
     public void chooseExit(Room room){
