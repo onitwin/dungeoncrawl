@@ -3,6 +3,7 @@ package logic;
 import behaviors.IUse;
 import characters.Player;
 import dungeon.Room;
+import gear.potions.Potion;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -61,12 +62,8 @@ public class PlayerOptions {
                 break;
             case 2:
                 System.out.println("You pick up the loot");
-                int lootSize = this.room.getLootSize();
-                int i = 0;
-                while(i  < lootSize){
-                    this.room.passLoot(this.room.individualItemOfLoot());
-                    i++;
-                 }
+                collectLoot();
+
                 break;
             case 3:
                 System.out.println("You check the exits");
@@ -79,7 +76,8 @@ public class PlayerOptions {
                 System.out.println("You swap weapons");
                 break;
             case 6:
-                System.out.println("You use the item");
+                usePotion();
+
                 break;
             case 7:
                 System.out.println(this.room.getDescription());
@@ -93,5 +91,50 @@ public class PlayerOptions {
     public void chooseExit(Room room){
         Scanner choice=new Scanner(System.in);
         String door= choice.nextLine();
+    }
+
+    public void collectLoot() {
+        int lootSize = this.room.getLootSize();
+        int i = 0;
+        while (i < lootSize) {
+            this.room.passLoot(this.room.individualItemOfLoot());
+            i++;
+        }
+    }
+
+    public void usePotion(){
+        ArrayList<IUse> ownedPotions;
+
+        ownedPotions = new ArrayList<IUse>();
+
+        for(IUse item : this.player.getEquipment()){
+            if(item instanceof Potion){
+                ownedPotions.add(item);
+            }
+        }
+        for(IUse potion : ownedPotions){
+            System.out.println(String.format("You have a %s", potion.getName()));
+
+        }
+        System.out.println(" ");
+        Scanner potionChoice=new Scanner(System.in);
+        System.out.println("Which potion would you like to use? ");
+        System.out.println(" ");
+
+        int arrayLength = ownedPotions.size();
+        for( int i = 0; i < arrayLength; i++ ){
+
+            String singleItem = ownedPotions.get(i).getName();
+            System.out.println(String.format("%s: %s ", i+1, singleItem));
+
+        }
+        String choice = potionChoice.nextLine();
+
+        this.usePotion();
+
+
+
+
+
     }
 }
