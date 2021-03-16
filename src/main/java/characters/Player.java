@@ -99,7 +99,7 @@ public abstract class Player implements IAttack {
     }
 
     public void swopWeapon(Weapon newWeapon){
-
+        equipment.add(this.weapon);
         this.weapon=newWeapon;
     }
 

@@ -5,6 +5,7 @@ import characters.Player;
 import dungeon.Room;
 import gear.potions.HealingPotion;
 import gear.potions.Potion;
+import gear.weapons.Weapon;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -141,11 +142,6 @@ public class PlayerOptions {
         System.out.println(newPotion.description());
 
 
-
-
-
-
-
         //Loop through owedPotions with users choice cast object back to type Potion and call this.player.usePotion()
         // int i =1
         //for(IUse item:equipment){
@@ -153,6 +149,44 @@ public class PlayerOptions {
         //   System.out.println(String.format("%s : item.getName")
         //i++}
         //int selection=
+
+    }
+
+    public void changeWeapon(){
+        ArrayList<IUse> ownedWeapons;
+
+       ownedWeapons = new ArrayList<IUse>();
+
+        for(IUse item : this.player.getEquipment()){
+            if(item instanceof Weapon){
+                ownedWeapons.add(item);
+            }
+        }
+        for(IUse item : ownedWeapons){
+            System.out.println(String.format("You have a %s", item.getName()));
+        }
+        System.out.println(" ");
+
+        Scanner weaponChoice = new Scanner(System.in);
+        System.out.println("Which weapon would you like to use? ");
+        System.out.println(" ");
+
+        int arrayLength = ownedWeapons.size();
+        for (int i = 0; i < arrayLength; i++) {
+
+            String singleItem = ownedWeapons.get(i).getName();
+            System.out.println(String.format("%s: %s ", i + 1, singleItem));
+
+        }
+
+        int choice = weaponChoice.nextInt();
+        choice = choice -1;
+        IUse newWeaponName = ownedWeapons.get(choice);
+        //We trying to create a new Weapon object
+        player.swopWeapon(ownedWeapons.get(choice));
+        System.out.println(String.format("%s has swapped to %s", this.player.getName(), selectedWeapon.getName()));
+
+
 
 
     }
