@@ -110,11 +110,19 @@ public abstract class Player implements IAttack {
 
 
     public void usePotion( IUse item, Player player){
-        System.out.println(String.format("%s items in the bag",this.getEquipmentSize()));
         IUse returnedItem = player.removeEquipment(item);
-        System.out.println(String.format("%s items in the bag",this.getEquipmentSize()));
         returnedItem.effect(player);
-        System.out.println(returnedItem instanceof IUse);
+    }
+
+    public void getStatus(){
+        System.out.println(" ");
+        System.out.println(String.format("| Health: %s | Attack: %s | Defence: %s |", this.hp, this.atk, this.def));
+        System.out.println(String.format("Current Weapon: %s", this.weapon));
+        getGear();
+
+
+
+
 
     }
 

@@ -38,6 +38,7 @@ public class PlayerOptions {
     }
 
     public void presentChoices(){
+        System.out.println(" ");
         System.out.println("Choose action:");
         if(this.room.getMonstersSize()>0){
             System.out.println("1:Attack");
@@ -48,7 +49,7 @@ public class PlayerOptions {
         if(this.room.getMonstersSize()<3){
             System.out.println("3:Choose exit");
         }
-        System.out.println("4:Check equipment");
+        System.out.println("4:Check status");
         System.out.println("5:Change weapon");
         System.out.println("6:Use Item");
         System.out.println("7:Examine Room ");
@@ -70,7 +71,7 @@ public class PlayerOptions {
                 System.out.println(" ");
                 break;
             case 4:
-                this.player.getGear();
+                this.player.getStatus();
                 System.out.println(" ");
                 break;
             case 5:
@@ -128,8 +129,12 @@ public class PlayerOptions {
             System.out.println(String.format("%s: %s ", i + 1, singleItem));
 
         }
-        int choice = potionChoice.nextInt();
 
+        int choice = potionChoice.nextInt();
+        choice = choice -1;
+        IUse selectedPotion = ownedPotions.get(choice);
+         player.usePotion(selectedPotion, this.player);
+         System.out.println(String.format("%s has used %s", this.player.getName(), selectedPotion.getName()));
 
 
 

@@ -49,7 +49,10 @@ public class Runner {
         Scanner gamer=new Scanner(System.in);
         System.out.println("Please enter your name:");
         String name=gamer.nextLine();
-        System.out.println(String.format("Welcome %s",name));
+        System.out.println(" ");
+        System.out.println(String.format("Welcome %s...",name));
+        System.out.println(" ");
+
 
         Fighter player=new Fighter(name,shinysword,10,10,30);
         player.addEquipment(bloodyAxe);
@@ -60,6 +63,7 @@ public class Runner {
 
         PlayerOptions options=new PlayerOptions(player,kitchen);
         System.out.println("Forced against your will to enter the abandoned castle, you steel yourself and approach the first door. The doorway behind you disappears...");
+        System.out.println(" ");
         kitchen.addPlayer(player);
         kitchen.getExitString();
         while(player.getHp()>0){
