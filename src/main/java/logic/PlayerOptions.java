@@ -67,6 +67,7 @@ public class PlayerOptions {
                 break;
             case 3:
                 System.out.println("You check the exits");
+                System.out.println(" ");
                 break;
             case 4:
                 this.player.getGear();
@@ -77,7 +78,6 @@ public class PlayerOptions {
                 break;
             case 6:
                 usePotion();
-
                 break;
             case 7:
                 System.out.println(this.room.getDescription());
@@ -102,38 +102,47 @@ public class PlayerOptions {
         }
     }
 
-    public void usePotion(){
+    public void usePotion() {
         ArrayList<IUse> ownedPotions;
 
         ownedPotions = new ArrayList<IUse>();
 
-        for(IUse item : this.player.getEquipment()){
-            if(item instanceof Potion){
+        for (IUse item : this.player.getEquipment()) {
+            if (item instanceof Potion) {
                 ownedPotions.add(item);
             }
         }
-        for(IUse potion : ownedPotions){
+        for (IUse potion : ownedPotions) {
             System.out.println(String.format("You have a %s", potion.getName()));
 
         }
         System.out.println(" ");
-        Scanner potionChoice=new Scanner(System.in);
+        Scanner potionChoice = new Scanner(System.in);
         System.out.println("Which potion would you like to use? ");
         System.out.println(" ");
 
         int arrayLength = ownedPotions.size();
-        for( int i = 0; i < arrayLength; i++ ){
+        for (int i = 0; i < arrayLength; i++) {
 
             String singleItem = ownedPotions.get(i).getName();
-            System.out.println(String.format("%s: %s ", i+1, singleItem));
+            System.out.println(String.format("%s: %s ", i + 1, singleItem));
 
         }
-        String choice = potionChoice.nextLine();
+        int choice = potionChoice.nextInt();
+
+
+
+
+
+
+
         //Loop through owedPotions with users choice cast object back to type Potion and call this.player.usePotion()
-        this.usePotion();
-
-
-
+        // int i =1
+        //for(IUse item:equipment){
+        //if (item.getClass() == potion){
+        //   System.out.println(String.format("%s : item.getName")
+        //i++}
+        //int selection=
 
 
     }
