@@ -6,4 +6,11 @@ public class Axe  extends Weapon{
         super(name,damage);
         this.damageType=DamageType.SLASH;
     }
+
+
+
+        public String description(){
+            return "You swapped to the mighty battle axe..";
+        }
+
 }

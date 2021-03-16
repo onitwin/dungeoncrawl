@@ -8,4 +8,8 @@ public interface IUse {
 
      String getName();
 
+     String description();
+
+
+
 }

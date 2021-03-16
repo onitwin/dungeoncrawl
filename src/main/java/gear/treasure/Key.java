@@ -6,4 +6,9 @@ public class Key extends Loot {
         super(name, value);
     }
 
+    public String description(){
+        return "The key fits in the lock.. your turn it...";
+    }
+
+
 }

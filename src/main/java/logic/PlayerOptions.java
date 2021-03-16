@@ -3,8 +3,10 @@ package logic;
 import behaviors.IUse;
 import characters.Player;
 import dungeon.Room;
+import gear.potions.HealingPotion;
 import gear.potions.Potion;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -39,7 +41,7 @@ public class PlayerOptions {
 
     public void presentChoices(){
         System.out.println(" ");
-        System.out.println("Choose action:");
+        System.out.println("CHOOSE ACTION:");
         if(this.room.getMonstersSize()>0){
             System.out.println("1:Attack");
         }
@@ -135,6 +137,9 @@ public class PlayerOptions {
         IUse selectedPotion = ownedPotions.get(choice);
          player.usePotion(selectedPotion, this.player);
          System.out.println(String.format("%s has used %s", this.player.getName(), selectedPotion.getName()));
+        Potion  newPotion = (Potion)selectedPotion;
+        System.out.println(newPotion.description());
+
 
 
 

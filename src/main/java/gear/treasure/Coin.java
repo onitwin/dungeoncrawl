@@ -7,7 +7,9 @@ public class Coin extends Loot {
         super(name, value);
     }
 
-
+    public String description(){
+        return "its dull and rusted.. probably worthless..";
+    }
 
 
 }

@@ -12,4 +12,7 @@ public class PotionOfStrength extends Potion{
     public void effect(Player player){
         player.setAtk(player.getAtk()+5);
     }
+    public String description(){
+        return "You drink the Potion of Strength and your muscles bulge..";
+    }
 }

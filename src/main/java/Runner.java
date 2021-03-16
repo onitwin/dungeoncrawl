@@ -4,6 +4,7 @@ import characters.Player;
 import characters.Skeleton;
 import dungeon.Room;
 import gear.potions.HealingPotion;
+import gear.potions.PotionOfStrength;
 import gear.treasure.Coin;
 import gear.treasure.Key;
 import gear.weapons.Axe;
@@ -21,7 +22,7 @@ public class Runner {
         Room dungeon=new Room ("Dungeon", "Blood covered tools, shackels and flagstones draw the eye.");
         Sword shinysword=new Sword("Greatsword",5);
         Axe bloodyAxe=new Axe("Bloody Axe",10);
-        HealingPotion healingPotion= new HealingPotion("Red potion");
+        PotionOfStrength strengthPotion= new PotionOfStrength("Red potion");
         HealingPotion healingGreater= new HealingPotion("Blue potion");
         HealingPotion healingLesser= new HealingPotion("Green potion");
 
@@ -58,7 +59,7 @@ public class Runner {
         player.addEquipment(bloodyAxe);
         player.addEquipment(healingGreater);
         player.addEquipment(healingLesser);
-        player.addEquipment(healingPotion);
+        player.addEquipment(strengthPotion);
 
 
         PlayerOptions options=new PlayerOptions(player,kitchen);

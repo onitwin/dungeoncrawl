@@ -13,4 +13,7 @@ public class HealingPotion extends Potion {
         player.setHp(player.getHp() + 5);
     }
 
+    public String description(){
+        return "You drink the healing portion you feel your wounds knit back together..";
+    }
 }

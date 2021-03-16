@@ -12,4 +12,8 @@ public class Mace extends Weapon {
     public void effect(Player player){
         player.setHp(player.getHp()-4);
     }
+
+    public String description(){
+        return "The Mace feels heavy in your hands..";
+    }
 }
