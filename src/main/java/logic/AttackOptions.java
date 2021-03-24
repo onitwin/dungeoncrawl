@@ -64,9 +64,13 @@ public class AttackOptions {
                     break;
                 case 3:
                     System.out.println("You use a potion!");
+                    break;
+
                 case 4:
                     this.player.getStatus();
                     System.out.println(" ");
+                    break;
+
 //                case 5:
 //                    System.out.println("Activate God Mode");
 //                    this.player.setHp(1000);

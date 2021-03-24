@@ -99,7 +99,6 @@ public class Room {
     }
 
     public ArrayList getMonsters(){
-        System.out.println(this.monsters.size());
         return this.monsters;
     }
 
