@@ -57,7 +57,7 @@ public class Runner {
         String name=gamer.nextLine();
         System.out.println(" ");
         System.out.println(String.format("Welcome %s...",name));
-        System.out.println(" ");
+        System.out.println("");
 
 
         Fighter player=new Fighter(name,shinysword,10,10,30);

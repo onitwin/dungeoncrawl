@@ -9,6 +9,7 @@ import gear.weapons.Sword;
 import gear.weapons.Weapon;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public abstract class Player implements IAttack {
     private String name;
@@ -120,12 +121,44 @@ public abstract class Player implements IAttack {
         System.out.println(String.format("Current Weapon: %s", this.weapon.getName()));
         getGear();
 
+    }
+
+    public void changeWeapon(){
+        ArrayList<IUse> ownedWeapons;
+
+        ownedWeapons = new ArrayList<IUse>();
+
+        for(IUse item : getEquipment()){
+            if(item instanceof Weapon){
+                ownedWeapons.add(item);
+            }
+        }
+        for(IUse item : ownedWeapons){
+            System.out.println(String.format("You have a %s", item.getName()));
+        }
+        System.out.println(" ");
+
+        Scanner weaponChoice = new Scanner(System.in);
+        System.out.println("Which weapon would you like to use? ");
+        System.out.println(" ");
+
+        int arrayLength = ownedWeapons.size();
+        for (int i = 0; i < arrayLength; i++) {
+
+            String singleItem = ownedWeapons.get(i).getName();
+            System.out.println(String.format("%s: %s ", i + 1, singleItem));
+
+        }
+
+        int choice = weaponChoice.nextInt();
+        choice = choice -1;
+        swopWeapon(ownedWeapons.get(choice));
+        System.out.println(String.format("%s has swapped to %s", getName(), getWeapon().getName()));
 
 
 
 
     }
-
 //     ((Potion)returnedItem).nonsense(); casting example
 
 

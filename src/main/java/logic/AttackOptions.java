@@ -45,7 +45,10 @@ public class AttackOptions {
             System.out.println("1: Attack an enemy.");
             System.out.println("2: Swap Weapon.");
             System.out.println("3: Use Potion.");
+            System.out.println("4: Check Status.");
+
             System.out.println(" ");
+
 
             Scanner choice = new Scanner(System.in);
             int selection = choice.nextInt();
@@ -56,10 +59,18 @@ public class AttackOptions {
                     System.out.println("You attack!");
                     break;
                 case 2:
+                    this.player.changeWeapon();
                     System.out.println("You swap weapons!");
                     break;
                 case 3:
                     System.out.println("You use a potion!");
+                case 4:
+                    this.player.getStatus();
+                    System.out.println(" ");
+//                case 5:
+//                    System.out.println("Activate God Mode");
+//                    this.player.setHp(1000);
+//                    this.player.setAtk(1000);
 
 
             }
