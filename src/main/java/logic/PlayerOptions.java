@@ -12,8 +12,9 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class PlayerOptions {
-    Room room;
-    Player player;
+    private Room room;
+    private  Player player;
+    private AttackOptions atkOptions;
 
 
 
@@ -22,6 +23,7 @@ public class PlayerOptions {
     public PlayerOptions(Player player, Room room){
         this.room=room;
         this.player=player;
+        this.atkOptions = new AttackOptions(player, room.getMonsters());
     }
 
     public Room getRoom() {
@@ -39,6 +41,7 @@ public class PlayerOptions {
     public void setPlayer(Player player) {
         this.player = player;
     }
+
 
     public void presentChoices(){
         System.out.println(" ");
@@ -63,6 +66,7 @@ public class PlayerOptions {
         switch(door){
             case 1:
                 System.out.println("You attack");
+                this.atkOptions.getAttackOptions();
                 break;
             case 2:
                 System.out.println("You pick up the loot");

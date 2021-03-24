@@ -9,8 +9,12 @@ import gear.treasure.Coin;
 import gear.treasure.Key;
 import gear.weapons.Axe;
 import gear.weapons.Sword;
+import logic.AttackOptions;
 import logic.PlayerOptions;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class Runner {
@@ -25,6 +29,7 @@ public class Runner {
         PotionOfStrength strengthPotion= new PotionOfStrength("Red potion");
         HealingPotion healingGreater= new HealingPotion("Blue potion");
         HealingPotion healingLesser= new HealingPotion("Green potion");
+
 
 
         Skeleton skully=new Skeleton("Skully",shinysword,5,5,30);
@@ -62,6 +67,8 @@ public class Runner {
         player.addEquipment(strengthPotion);
 
 
+
+
         PlayerOptions options=new PlayerOptions(player,kitchen);
         System.out.println("Forced against your will to enter the abandoned castle, you steel yourself and approach the first door. The doorway behind you disappears...");
         System.out.println(" ");
@@ -70,6 +77,9 @@ public class Runner {
         while(player.getHp()>0){
             options.presentChoices();
         }
+
+
+
 
 
 

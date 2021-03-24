@@ -98,6 +98,12 @@ public class Room {
         return target;
     }
 
+    public ArrayList getMonsters(){
+        System.out.println(this.monsters.size());
+        return this.monsters;
+    }
+
+
     public int getLootSize(){
         return this.loot.size();
     }

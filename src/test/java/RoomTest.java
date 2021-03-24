@@ -166,6 +166,13 @@ public class RoomTest {
     }
 
 //    @Test
+//    public void getMonster(){
+//        kitchen.addMonster(bonesy);
+//        kitchen.addMonster(skully);
+//        assertEquals(kitchen.getMonsters(), 2)  ;
+//    }
+
+//    @Test
 //    public void canGetArrayOfItems(){
 //        kitchen.addLoot(coin);
 //        assertEquals("blah",kitchen.getAllLoot());
