@@ -190,3 +190,8 @@ public class PlayerOptions {
 
     }
 }
+
+
+//attack option>>>>>1:attack a monster>>>>which monster>>>>resolve attack>>>check if monster dead>>>if not>>>monsters hit back>>>>
+//attack opion>>>>>2:swop weapons>>>>>>>>call method to swop weapons>>>>monsters attack you
+//attack option>>>>3:take potion>>>>>>resolve potion>>>>monsters attack you

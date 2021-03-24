@@ -18,7 +18,7 @@ public abstract class Player implements IAttack {
     private int def;
     private int hp;
 
-    public Player(String name,Weapon weapon,int atk,int def,int hp){
+    public Player(String name,IUse weapon,int atk,int def,int hp){
         this.name=name;
         this.weapon=weapon;
         this.atk=atk;

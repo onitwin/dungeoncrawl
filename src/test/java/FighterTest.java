@@ -3,6 +3,7 @@ import characters.Fighter;
 import gear.potions.HealingPotion;
 import gear.potions.Potion;
 import gear.weapons.Sword;
+import gear.weapons.Weapon;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.theories.suppliers.TestedOn;
@@ -59,6 +60,7 @@ public class FighterTest {
 
     @Test
     public void canSwapWeapon(){
+        ajax.addEquipment(sword2);
         assertEquals("Stabby",ajax.getWeapon().getName());
         ajax.swopWeapon(sword2);
         assertEquals("Slashy",ajax.getWeapon().getName());
