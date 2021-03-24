@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 public abstract class Player implements IAttack {
     private String name;
-    protected Weapon weapon;
+    protected IUse weapon;
     private ArrayList<IUse> equipment;
     private int atk;
     private int def;
@@ -35,11 +35,11 @@ public abstract class Player implements IAttack {
         this.name = name;
     }
 
-    public Weapon getWeapon() {
+    public IUse getWeapon() {
         return weapon;
     }
 
-    public void setWeapon(Weapon weapon) {
+    public void setWeapon(IUse weapon) {
         this.weapon = weapon;
     }
 
@@ -98,13 +98,13 @@ public abstract class Player implements IAttack {
         this.hp = hp;
     }
 
-    public void swopWeapon(Weapon newWeapon){
+    public void swopWeapon(IUse newWeapon){
         equipment.add(this.weapon);
-        this.weapon=newWeapon;
+        this.weapon=removeEquipment(newWeapon);
     }
 
     public void attack(Player player){
-        int totalDamage = this.atk + this.weapon.getDamage() - player.getDef();
+        int totalDamage = this.atk + ((Weapon)this.weapon).getDamage() - player.getDef();
         player.setHp(player.getHp() - totalDamage) ;
     }
 
@@ -117,7 +117,7 @@ public abstract class Player implements IAttack {
     public void getStatus(){
         System.out.println(" ");
         System.out.println(String.format("| Health: %s | Attack: %s | Defence: %s |", this.hp, this.atk, this.def));
-        System.out.println(String.format("Current Weapon: %s", this.weapon));
+        System.out.println(String.format("Current Weapon: %s", this.weapon.getName()));
         getGear();
 
 

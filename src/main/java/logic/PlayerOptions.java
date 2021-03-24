@@ -78,6 +78,7 @@ public class PlayerOptions {
                 System.out.println(" ");
                 break;
             case 5:
+                changeWeapon();
                 System.out.println("You swap weapons");
                 break;
             case 6:
@@ -181,10 +182,8 @@ public class PlayerOptions {
 
         int choice = weaponChoice.nextInt();
         choice = choice -1;
-        IUse newWeaponName = ownedWeapons.get(choice);
-        //We trying to create a new Weapon object
         player.swopWeapon(ownedWeapons.get(choice));
-        System.out.println(String.format("%s has swapped to %s", this.player.getName(), selectedWeapon.getName()));
+        System.out.println(String.format("%s has swapped to %s", this.player.getName(), this.player.getWeapon().getName()));
 
 
 
