@@ -63,6 +63,7 @@ public class AttackOptions {
                     System.out.println("You swap weapons!");
                     break;
                 case 3:
+                    this.player.usePotion();
                     System.out.println("You use a potion!");
                     break;
 

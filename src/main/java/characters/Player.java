@@ -159,10 +159,45 @@ public abstract class Player implements IAttack {
 
 
     }
+
+    public void usePotion() {
+        ArrayList<IUse> ownedPotions;
+
+        ownedPotions = new ArrayList<IUse>();
+
+        for (IUse item : getEquipment()) {
+            if (item instanceof Potion) {
+                ownedPotions.add(item);
+            }
+        }
+        for (IUse potion : ownedPotions) {
+            System.out.println(String.format("You have a %s", potion.getName()));
+
+        }
+        System.out.println(" ");
+        Scanner potionChoice = new Scanner(System.in);
+        System.out.println("Which potion would you like to use? ");
+        System.out.println(" ");
+
+        int arrayLength = ownedPotions.size();
+        for (int i = 0; i < arrayLength; i++) {
+
+            String singleItem = ownedPotions.get(i).getName();
+            System.out.println(String.format("%s: %s ", i + 1, singleItem));
+
+        }
+
+        int choice = potionChoice.nextInt();
+        choice = choice - 1;
+        IUse selectedPotion = ownedPotions.get(choice);
+        usePotion(selectedPotion, this);
+        System.out.println(String.format("%s has used %s", getName(), selectedPotion.getName()));
+        Potion newPotion = (Potion) selectedPotion;
+        System.out.println(newPotion.description());
 //     ((Potion)returnedItem).nonsense(); casting example
 
 
-
+    }
 
 
 

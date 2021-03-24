@@ -86,7 +86,7 @@ public class PlayerOptions {
                 System.out.println("You swap weapons");
                 break;
             case 6:
-                usePotion();
+                this.player.usePotion();
                 break;
             case 7:
                 System.out.println(this.room.getDescription());
@@ -111,40 +111,7 @@ public class PlayerOptions {
         }
     }
 
-    public void usePotion() {
-        ArrayList<IUse> ownedPotions;
 
-        ownedPotions = new ArrayList<IUse>();
-
-        for (IUse item : this.player.getEquipment()) {
-            if (item instanceof Potion) {
-                ownedPotions.add(item);
-            }
-        }
-        for (IUse potion : ownedPotions) {
-            System.out.println(String.format("You have a %s", potion.getName()));
-
-        }
-        System.out.println(" ");
-        Scanner potionChoice = new Scanner(System.in);
-        System.out.println("Which potion would you like to use? ");
-        System.out.println(" ");
-
-        int arrayLength = ownedPotions.size();
-        for (int i = 0; i < arrayLength; i++) {
-
-            String singleItem = ownedPotions.get(i).getName();
-            System.out.println(String.format("%s: %s ", i + 1, singleItem));
-
-        }
-
-        int choice = potionChoice.nextInt();
-        choice = choice -1;
-        IUse selectedPotion = ownedPotions.get(choice);
-         player.usePotion(selectedPotion, this.player);
-         System.out.println(String.format("%s has used %s", this.player.getName(), selectedPotion.getName()));
-        Potion  newPotion = (Potion)selectedPotion;
-        System.out.println(newPotion.description());
 
 
         //Loop through owedPotions with users choice cast object back to type Potion and call this.player.usePotion()
@@ -159,7 +126,7 @@ public class PlayerOptions {
 
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-}
+
 
 
 //attack option>>>>>1:attack a monster>>>>which monster>>>>resolve attack>>>check if monster dead>>>if not>>>monsters hit back>>>>
