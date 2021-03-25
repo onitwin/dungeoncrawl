@@ -35,6 +35,6 @@ public class AttackOptionsTest {
         baddies.add(skully);
         beetleJuice = new HealingPotion("Beetle Juice");
         room = new Room("Kitchen", "Needs cleaned");
-        atkOptions = new AttackOptions(ajax, baddies );
+        atkOptions = new AttackOptions(ajax, room);
     }
 }

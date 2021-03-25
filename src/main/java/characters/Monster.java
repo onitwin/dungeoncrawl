@@ -1,5 +1,6 @@
 package characters;
 
+
 import behaviors.IUse;
 import gear.weapons.Weapon;
 

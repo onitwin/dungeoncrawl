@@ -23,7 +23,8 @@ public class PlayerOptions {
     public PlayerOptions(Player player, Room room){
         this.room=room;
         this.player=player;
-        this.atkOptions = new AttackOptions(player, room.getMonsters());
+//        this.atkOptions = new AttackOptions(player, room.getMonsters());
+        this.atkOptions = new AttackOptions(player,room);
     }
 
     public Room getRoom() {

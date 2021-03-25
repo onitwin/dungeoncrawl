@@ -1,7 +1,10 @@
 package logic;
 
+import behaviors.IUse;
 import characters.Monster;
 import characters.Player;
+import dungeon.Room;
+import gear.potions.Potion;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -9,11 +12,17 @@ import java.util.Scanner;
 public class AttackOptions {
 
     private Player player;
-    private ArrayList<Monster> monsters;
+//    private ArrayList<Monster> monsters;
+    private Room room;
 
-    public AttackOptions(Player player, ArrayList monsters){
+//    public AttackOptions(Player player, ArrayList monsters){
+//        this.player = player;
+//        this.monsters = monsters;
+//
+//    }
+    public AttackOptions(Player player, Room room){
         this.player = player;
-        this.monsters = monsters;
+        this.room = room;
 
     }
 
@@ -24,19 +33,19 @@ public class AttackOptions {
     public void setPlayer(Player player) {
         this.player = player;
     }
+//
+//    public ArrayList<Monster> getMonsters() {
+//        return monsters;
+//    }
 
-    public ArrayList<Monster> getMonsters() {
-        return monsters;
-    }
-
-    public void setMonsters(ArrayList<Monster> monsters) {
-        this.monsters = monsters;
-    }
+//    public void setMonsters(ArrayList<Monster> monsters) {
+//        this.monsters = monsters;
+//    }
 
 
 
     public void getAttackOptions(){
-        while( monsters.size() > 0) {
+        while( this.room.getMonstersSize() > 0) {
             System.out.println(" ");
             System.out.println("You are in combat!");
             System.out.println(" ");
@@ -56,6 +65,7 @@ public class AttackOptions {
 
             switch(selection){
                 case 1:
+                    combat();
                     System.out.println("You attack!");
                     break;
                 case 2:
@@ -85,10 +95,33 @@ public class AttackOptions {
 
 
 
-
-
-
     }
+
+    public void combat(){
+        System.out.println(String.format("You are fighting %s creature(s)",room.getMonstersSize()));
+        ArrayList<Monster>monsters=this.room.getMonsters();
+
+        for ( Monster monster: monsters) {
+            System.out.println(String.format("One opponent is a %s ",monster.getName()));
+        }
+
+        Scanner monsterChoice=new Scanner(System.in);
+        if (this.room.getMonstersSize()>1){
+            System.out.println("Which monster would you like to attack?");
+        }else{
+            System.out.println("There is only one opponent to attack?");
+        }
+
+        for(int i=0;i<room.getMonstersSize();i++){
+            String creatureName=monsters.get(i).getName();
+            System.out.println(String.format("%s: Attack %s", i + 1, creatureName));
+        }
+        int choice = monsterChoice.nextInt()-1;
+        this.player.attack(monsters.get(choice));
+
+    };
+
 
 
 }
+
