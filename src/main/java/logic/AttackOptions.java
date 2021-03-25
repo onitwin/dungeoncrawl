@@ -104,22 +104,35 @@ public class AttackOptions {
         for ( Monster monster: monsters) {
             System.out.println(String.format("One opponent is a %s ",monster.getName()));
         }
+        int choice = selectTarget(monsters);
+        this.player.attack(monsters.get(choice));
+        //DELETE LATER to check monsters HP
+        System.out.println(monsters.get(choice).getHp());
 
-        Scanner monsterChoice=new Scanner(System.in);
-        if (this.room.getMonstersSize()>1){
+    };
+
+    public int selectTarget(ArrayList<Monster>monsters) {
+        Scanner monsterChoice = new Scanner(System.in);
+        if (this.room.getMonstersSize() > 1) {
             System.out.println("Which monster would you like to attack?");
-        }else{
+        } else {
             System.out.println("There is only one opponent to attack?");
-        }
 
+        }
         for(int i=0;i<room.getMonstersSize();i++){
             String creatureName=monsters.get(i).getName();
             System.out.println(String.format("%s: Attack %s", i + 1, creatureName));
         }
-        int choice = monsterChoice.nextInt()-1;
-        this.player.attack(monsters.get(choice));
+        int choice = monsterChoice.nextInt();
 
-    };
+        if(choice < 1 || choice > monsters.size()) {
+            System.out.println("Enter valid number");
+            selectTarget(monsters);
+
+        }
+        return choice -1 ;
+
+    }
 
 
 
