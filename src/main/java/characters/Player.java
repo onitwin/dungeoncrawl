@@ -187,7 +187,17 @@ public abstract class Player implements IAttack {
 
         }
 
+
         int choice = potionChoice.nextInt();
+
+        if(choice < 1 || choice > ownedPotions.size()) {
+            System.out.println("ENTER VALID NUMBER!");
+            System.out.println(" ");
+
+            usePotion();
+
+        }
+
         choice = choice - 1;
         IUse selectedPotion = ownedPotions.get(choice);
         usePotion(selectedPotion, this);

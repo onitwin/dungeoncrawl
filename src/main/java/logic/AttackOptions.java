@@ -126,7 +126,8 @@ public class AttackOptions {
         int choice = monsterChoice.nextInt();
 
         if(choice < 1 || choice > monsters.size()) {
-            System.out.println("Enter valid number");
+            System.out.println("ENTER VALID NUMBER!");
+            System.out.println(" ");
             selectTarget(monsters);
 
         }
