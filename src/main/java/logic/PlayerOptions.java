@@ -77,6 +77,8 @@ public class PlayerOptions {
             case 3:
                 System.out.println("You check the exits");
                 System.out.println(" ");
+                //add method to assess rooms and present them as directions with associated number
+                //then call choose exit
                 break;
             case 4:
                 this.player.getStatus();
